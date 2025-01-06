@@ -1,5 +1,6 @@
 from data_validation.data_validation import DataValidation
 from data_quality.data_quality import DataQuality
+from data_process.data_process import Data_Process
 import pandas as pd
 
 def main():
@@ -12,7 +13,9 @@ def main():
     quality = DataQuality(df)
     df = quality.quality_control()
     print(df)
-  
+    process = Data_Process(df)
+    df = process.enrichment()
+    print(df)
+    
 if __name__ == "__main__":
     main()
-    # Chamadas de função, prints, etc.
