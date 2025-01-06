@@ -1,4 +1,5 @@
 from data_validation.data_validation import DataValidation
+from data_quality.data_quality import DataQuality
 import pandas as pd
 
 def main():
@@ -7,6 +8,10 @@ def main():
   validation = DataValidation(df)
   issues = validation.validate()
   print(issues)
+  if issues['type_mismatches'] == {}:
+    quality = DataQuality(df)
+    df = quality.quality_control()
+    print(df)
   
 if __name__ == "__main__":
     main()
