@@ -45,3 +45,4 @@ class DataPipeline:
             process = Data_Process(df)
             df = process.enrichment()
             print(df)
+            return df
